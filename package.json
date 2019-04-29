@@ -1,0 +1,27 @@
+{
+  "name": "redux-basics",
+  "version": "1.0.0",
+  "description": "Redux basic template",
+  "main": "redux.js",
+  "dependencies": {
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franlol/redux-template.git"
+  },
+  "keywords": [
+    "Redux",
+    "template"
+  ],
+  "author": "franlol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/franlol/redux-template/issues"
+  },
+  "homepage": "https://github.com/franlol/redux-template#readme"
+}
