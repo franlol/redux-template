@@ -1,4 +1,4 @@
-// const redux = require('redux');
+// import { createStore } from 'redux';
 const redux = require('redux');
 
 // import { combineReducers } from 'redux'
@@ -7,13 +7,12 @@ const combineReducers = require('redux').combineReducers;
 // import { applyMiddleware } from 'redux';
 const applyMiddleware = require('redux').applyMiddleware;
 
-const createStore = redux.createStore;
 
 const initialState = {
     count: 0
 }
 
-// Reducer
+// INC Reducer
 const incReducer = (state = initialState, action) => {
     const { type } = action;
 
@@ -42,17 +41,18 @@ const reducers = combineReducers({
     count: incReducer,
 })
 
-// Custom middleware
-const customMiddleware = store => next => action => {
-    console.log("\nBEFORE:", store.getState())
+// Logger middleware
+const loggerMiddleware = store => next => action => {
+    console.log("\nBEFORE:", store.getState());
     next(action);
 }
 
 // Middlewares
-const middleware = applyMiddleware(customMiddleware);
+const middlewares = applyMiddleware(loggerMiddleware);
 
 // Store
-const store = createStore(reducers, middleware);
+const createStore = redux.createStore;
+const store = createStore(reducers, middlewares);
 console.log("INIT STORE STATE:", store.getState());
 
 // Subscription
